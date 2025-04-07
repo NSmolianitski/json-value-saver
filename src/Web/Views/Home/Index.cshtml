@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-4">
+    <h1 class="display-4 text-center mb-4">Ввод и отображение значений</h1>
+
+    <form id="itemForm" class="mb-4">
+        <div id="itemsContainer" class="mb-3"></div>
+        <button type="button" class="btn btn-outline-primary" onclick="addItem()">Добавить элемент</button>
+        <button type="submit" class="btn btn-success">Отправить</button>
+    </form>
+
+    <template id="itemTemplate">
+        <div class="item d-flex align-items-center mb-2 gap-2">
+            <input type="number" class="form-control w-25" placeholder="Code" required>
+            <input type="text" class="form-control w-50" placeholder="Value" required>
+            <button type="button" class="btn btn-sm btn-secondary" onclick="moveUp(this)">▲</button>
+            <button type="button" class="btn btn-sm btn-secondary" onclick="moveDown(this)">▼</button>
+            <button type="button" class="btn btn-danger" onclick="removeItem(this)">Удалить</button>
+        </div>
+    </template>
+
+    <h3>Список записей</h3>
+    <div class="input-group mb-3">
+        <button class="btn btn-secondary" onclick="getValues()">Обновить список</button>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th class="w-25">Порядковый номер</th>
+            <th>Код</th>
+            <th>Значение</th>
+        </tr>
+        </thead>
+        <tbody id="dataTable"></tbody>
+    </table>
+
+    <nav>
+        <ul class="pagination" id="pagination"></ul>
+    </nav>
+
+    <script src="js/site.js"></script>
+</div>
